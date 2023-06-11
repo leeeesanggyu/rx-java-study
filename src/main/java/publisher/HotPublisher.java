@@ -1,3 +1,5 @@
+package publisher;
+
 import io.reactivex.processors.PublishProcessor;
 
 public class HotPublisher {

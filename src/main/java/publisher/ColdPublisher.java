@@ -1,3 +1,5 @@
+package publisher;
+
 import io.reactivex.Flowable;
 
 public class ColdPublisher {

@@ -1,4 +1,5 @@
-import io.reactivex.BackpressureOverflowStrategy;
+package backpressure;
+
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 import log.LogType;
@@ -8,19 +9,14 @@ import log.TimeUtil;
 import java.util.concurrent.TimeUnit;
 
 /**
- * - DROP_OLDEST
+ * 버퍼가 가득차면 버퍼 바깥쪽에서 통지 대기중인 데이터들은 계속 파기(DROP)하고
+ * 버퍼를 비운 시점에 Drop되지 않고 대기중인 데이터부터 버퍼에 담는다.
  */
-public class BackpressureBufferDropOldest {
+public class BackpressureBufferDrop {
     public static void main(String[] args){
-        System.out.println("# start : " + TimeUtil.getCurrentTimeFormatted());
         Flowable.interval(300L, TimeUnit.MILLISECONDS)
                 .doOnNext(data -> Logger.log("#inverval doOnNext()", data))
-                .onBackpressureBuffer(
-                        2,
-                        () -> Logger.log("overflow!"),
-                        BackpressureOverflowStrategy.DROP_OLDEST
-                )
-                .doOnNext(data -> Logger.log("#onBackpressureBuffer doOnNext()", data))
+                .onBackpressureDrop(dropData -> Logger.log(LogType.PRINT, dropData + " Drop!"))
                 .observeOn(Schedulers.computation(), false, 1)
                 .subscribe(
                         data -> {
@@ -30,6 +26,6 @@ public class BackpressureBufferDropOldest {
                         error -> Logger.log(LogType.ON_ERROR, error)
                 );
 
-        TimeUtil.sleep(2800L);
+        TimeUtil.sleep(5500L);
     }
 }
