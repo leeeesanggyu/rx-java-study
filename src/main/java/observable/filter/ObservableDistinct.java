@@ -6,6 +6,10 @@ import log.Logger;
 
 import java.util.List;
 
+/**
+ * 이미 통지한 데이터와 같은 데이터는 제외하고 통지
+ * 유일한 값을 처리할때 사용
+ */
 public class ObservableDistinct {
     public static void main(String[] args) {
         List<String> name = List.of("lee", "lee", "kem", "aaa");

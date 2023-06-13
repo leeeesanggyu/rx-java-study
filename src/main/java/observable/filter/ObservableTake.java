@@ -6,6 +6,9 @@ import log.Logger;
 
 import java.util.List;
 
+/**
+ * 지정한 갯수만큼 데이터 발행
+ */
 public class ObservableTake {
     public static void main(String[] args) {
         List<String> name = List.of("lee", "lee", "kem", "aaa");
