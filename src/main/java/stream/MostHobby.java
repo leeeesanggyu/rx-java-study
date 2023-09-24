@@ -8,7 +8,6 @@ import java.util.*;
 public class MostHobby {
     public static void main(String[] args) {
         List<List<String>> datas = CsvReader.read();
-        datas.remove(0);
         System.out.println("data =>" + datas);
 
         HashMap<String, Integer> hobbyCountMap = new HashMap<>();

@@ -25,6 +25,7 @@ public class CsvReader {
             e.printStackTrace();
         }
 
+        list.remove(0);
         return list;
     }
 }

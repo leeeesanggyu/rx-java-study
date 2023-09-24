@@ -12,7 +12,6 @@ public class FirstNameHobby {
         final String firstName = "죠";
 
         List<List<String>> datas = CsvReader.read();
-        datas.remove(0);
         System.out.println("data =>" + datas);
 
         HashMap<String, Integer> resultMap = new HashMap<>();

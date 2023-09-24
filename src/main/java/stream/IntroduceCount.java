@@ -9,7 +9,6 @@ import java.util.Optional;
 public class IntroduceCount {
     public static void main(String[] args) {
         List<List<String>> datas = CsvReader.read();
-        datas.remove(0);
         System.out.println("datas =>" + datas);
 
         final String keyword = "좋아";
