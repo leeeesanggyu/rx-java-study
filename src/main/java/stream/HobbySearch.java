@@ -1,8 +1,7 @@
 package stream;
 
-import stream.data.CsvReader;
+import stream.csv.CsvReader;
 
-import java.util.Arrays;
 import java.util.List;
 
 // 취미가 "농구" 또는 "축구"인 사람들을 출력하세요.

@@ -1,4 +1,4 @@
-package stream.data;
+package stream.csv;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

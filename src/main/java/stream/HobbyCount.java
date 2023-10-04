@@ -1,12 +1,10 @@
 package stream;
 
-import stream.data.CsvReader;
+import stream.csv.CsvReader;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 // 취미별 인원 수를 구하라
 public class HobbyCount {
