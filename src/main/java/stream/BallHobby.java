@@ -30,7 +30,16 @@ public class BallHobby {
         datas.stream()
                 .flatMap(data -> data.getHobby().stream())
                 .filter(hobby -> hobby.contains("구"))
-                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, Integer::sum))
+                .collect(Collectors.toMap(hobby -> hobby, hobby -> 1, (oldValue, newValue) -> ++oldValue))
                 .entrySet().forEach(System.out::println);
+
+        System.out.println("---------------------");
+
+        datas.stream()
+                .flatMap(data -> data.getHobby().stream())
+                .filter(hobby -> hobby.contains("구"))
+                .collect(Collectors.groupingBy(hobby -> hobby, Collectors.counting()))
+                .entrySet()
+                .forEach(System.out::println);
     }
 }
